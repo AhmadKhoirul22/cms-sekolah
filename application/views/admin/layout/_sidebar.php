@@ -45,7 +45,14 @@
 						<li class="sidebar-item <?php if($menu=='profile'){echo 'active';} ?>">
                             <a href="<?= base_url('admin/profile') ?>" class='sidebar-link'>
                                 <i class="bi bi-book"></i>
-                                <span>Profile</span>
+                                <span>Profile Sekolah</span>
+                            </a>
+                        </li>
+
+						<li class="sidebar-item <?php if($menu=='guru'){echo 'active';} ?>">
+                            <a href="<?= base_url('admin/guru') ?>" class='sidebar-link'>
+                                <i class="bi bi-people"></i>
+                                <span>Guru</span>
                             </a>
                         </li>
 
