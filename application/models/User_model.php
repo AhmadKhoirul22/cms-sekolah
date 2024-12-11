@@ -31,5 +31,37 @@ class User_model extends CI_Model{
 		);
 		$this->db->update('user',$data,$where);
 	}
+	public function tampil_guru(){
+		$this->db->from('guru');
+		$this->db->order_by('nama','ASC');
+		$data = $this->db->get()->result_array();
+		
+		return $data;
+	}
+	public function add_guru(){
+		$data = [
+			'nama' => $this->input->post('nama'),
+			'kompetensi' => $this->input->post('kompetensi'),
+			'mata_pelajaran' => $this->input->post('mata_pelajaran'),
+		];
+		$this->db->insert('guru',$data);
+	}
+	public function delete_guru($id){
+		$data = [
+			'id_guru' => $id,
+		];
+		$this->db->delete('guru',$data);
+	}
+	public function update_guru(){
+		$data = [
+			'nama' => $this->input->post('nama'),
+			'kompetensi' => $this->input->post('kompetensi'),
+			'mata_pelajaran' => $this->input->post('mata_pelajaran'),
+		];
+		$where = [
+			'id_guru' => $this->input->post('id_guru')
+		];
+		$this->db->update('guru',$data,$where);
+	}
 }
 ?>
