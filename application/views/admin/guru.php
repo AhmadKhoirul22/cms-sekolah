@@ -141,7 +141,10 @@
 										data-bs-target="#default<?= $row['id_guru'] ?>">
 										<i class="bi bi-pencil"></i>
 									</button>
-										<a onclick="return confirm('yakin dihapus?')" href="<?= base_url('admin/guru/delete/'.$row['id_guru']) ?>" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+										<a href="<?= base_url('admin/guru/delete/'.$row['id_guru']) ?>" 
+										class="btn btn-danger delete-button" 
+										data-href="<?= base_url('admin/guru/delete/'.$row['id_guru']) ?>"
+										><i class="bi bi-trash"></i></a>
 										
 									</td>
 								</tr>
@@ -205,6 +208,36 @@
         </div>
     </div>
 <?php include('layout/_js.php') ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Pilih semua tombol dengan class "delete-button"
+        const deleteButtons = document.querySelectorAll('.delete-button');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function (e) {
+                e.preventDefault(); // Mencegah tautan langsung dijalankan
+                const href = this.getAttribute('data-href'); // Ambil URL dari atribut data-href
+
+                Swal.fire({
+                    title: 'Yakin ingin menghapus?',
+                    text: "Data yang dihapus tidak dapat dikembalikan!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Redirect ke URL jika dikonfirmasi
+                        window.location.href = href;
+                    }
+                });
+            });
+        });
+    });
+</script>
+
 </body>
 
 </html>
