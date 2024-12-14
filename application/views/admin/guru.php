@@ -51,7 +51,7 @@
 									timer: 3000
 								});
 							</script>
-							<?php elseif ($this->session->flashdata('alert') == 'success'): ?>
+							<?php elseif ($this->session->flashdata('alert') == 'add'): ?>
 							<script>
 								Swal.fire({
 									icon: 'success',
@@ -61,12 +61,22 @@
 									timer: 3000
 								});
 							</script>
-							<?php elseif ($this->session->flashdata('alert') == 'success delete'): ?>
+							<?php elseif ($this->session->flashdata('alert') == 'delete'): ?>
 							<script>
 								Swal.fire({
 									icon: 'success',
 									title: 'Berhasil',
 									text: 'Data berhasil dihapus!',
+									confirmButtonText: 'OK',
+									timer: 3000
+								});
+							</script>
+							<?php elseif ($this->session->flashdata('alert') == 'update'): ?>
+							<script>
+								Swal.fire({
+									icon: 'success',
+									title: 'Berhasil',
+									text: 'Data berhasil diupdate!',
 									confirmButtonText: 'OK',
 									timer: 3000
 								});
@@ -160,19 +170,19 @@
 													</button>
 												</div>
 												<div class="modal-body">
-													<form action="<?= base_url('admin/user/update') ?>" method="post">
+													<form action="<?= base_url('admin/guru/update') ?>" method="post">
 														<input type="hidden" name="id_guru" value="<?= $row['id_guru'] ?>" >
 														<div class="mb-2">
-															<label for="" class="form-label">Email</label>
-															<input type="email" name="email" value="<?= $row['nama'] ?>" class="form-control" required>
+															<label for="" class="form-label">Nama Guru</label>
+															<input type="text" name="nama" value="<?= $row['nama'] ?>" class="form-control" required>
 														</div>
 														<div class="mb-2">
-															<label for="" class="form-label">Nama</label>
-															<input type="text" name="nama" value="<?= $row['kompetensi'] ?>" class="form-control" required>
+															<label for="" class="form-label">Kompetensi</label>
+															<input type="text" name="kompetensi" value="<?= $row['kompetensi'] ?>" class="form-control" required>
 														</div>
 														<div class="mb-2">
-															<label for="" class="form-label">Nama</label>
-															<input type="text" name="nama" value="<?= $row['mata_pelajaran'] ?>" class="form-control" required>
+															<label for="" class="form-label">Mata Pelajaran</label>
+															<input type="text" name="mata_pelajaran" value="<?= $row['mata_pelajaran'] ?>" class="form-control" required>
 														</div>
 														<!-- <div class="mb-2">
 															<label for="" class="form-label">Password</label>
