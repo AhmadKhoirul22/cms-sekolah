@@ -13,3 +13,5 @@
 <link rel="stylesheet" href="<?= base_url('assets/mazer/dist/') ?>assets/vendors/bootstrap-icons/bootstrap-icons.css">
 <link rel="stylesheet" href="<?= base_url('assets/mazer/dist/') ?>assets/css/app.css">
 <link rel="shortcut icon" href="<?= base_url('assets/mazer/dist/') ?>assets/images/favicon.svg" type="image/x-icon">
+<!-- Tambahkan SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
