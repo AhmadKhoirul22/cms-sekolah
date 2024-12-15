@@ -218,7 +218,7 @@
         </div>
     </div>
 <?php include('layout/_js.php') ?>
-<script>
+<!-- <script>
     document.addEventListener('DOMContentLoaded', function () {
         // Pilih semua tombol dengan class "delete-button"
         const deleteButtons = document.querySelectorAll('.delete-button');
@@ -246,7 +246,7 @@
             });
         });
     });
-</script>
+</script> -->
 
 </body>
 
