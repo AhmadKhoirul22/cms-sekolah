@@ -20,7 +20,7 @@ class Profile extends CI_Controller{
 		$where = array('id_profile' => $this->input->post('id_profile'));
 		$this->db->update('profile',$data,$where);
 		$alert = $this->Alert_model->update();
-		$this->session->set_flashdata('alert',$alert);
+		$this->session->set_flashdata('alert','update');
 		redirect($_SERVER['HTTP_REFERER']);
 	}
 }
