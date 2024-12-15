@@ -11,10 +11,12 @@ class Konten extends CI_Controller{
 	}
 	public function index(){
 		$data['title'] = 'Konten';
+
 		$this->db->from('konten a');
 		$this->db->join('kategori b','b.id_kategori = a.id_kategori','left');
 		$this->db->join('user c','c.id_user = a.id_user','left');
 		$data['konten'] = $this->db->get()->result_array();
+
 		$data['kategori'] = $this->Kategori_model->tampil();
 		$this->load->view('admin/konten',$data);
 	}
@@ -47,7 +49,7 @@ class Konten extends CI_Controller{
 		$cek = $this->db->get()->row();
 		if($cek != null){
 			$alert = $this->Alert_model->warning();
-			$this->session->set_flashdata('alert',$alert);
+			$this->session->set_flashdata('alert','warning');
 			redirect($_SERVER['HTTP_REFERER']);
 		} else{
 			$data = array(
@@ -61,7 +63,7 @@ class Konten extends CI_Controller{
 			);
 			$this->db->insert('konten',$data);
 			$alert = $this->Alert_model->tambah();
-			$this->session->set_flashdata('alert',$alert);
+			$this->session->set_flashdata('alert','add');
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 	}
@@ -75,7 +77,7 @@ class Konten extends CI_Controller{
                 );
         $this->db->delete('konten', $where);
         $alert = $this->Alert_model->delete();
-		$this->session->set_flashdata('alert',$alert);
+		$this->session->set_flashdata('alert','delete');
 		redirect($_SERVER['HTTP_REFERER']);
     }
 	public function update(){
@@ -97,20 +99,30 @@ class Konten extends CI_Controller{
             $error = array('error' => $this->upload->display_errors());
         }else{
             $data = array('upload_data' => $this->upload->data());
-        } 
-        $data = array(
-            'judul' => $this->input->post('judul'),
-            'id_kategori' => $this->input->post('id_kategori'),
-            'keterangan' => $this->input->post('keterangan'),
-            'slug' => str_replace(' ','-',$this->input->post('judul')),
-        );
-        $where = array(
-            'foto' => $this->input->post('nama_foto')
-        );
-        $this->db->update('konten',$data, $where);
-		$alert = $this->Alert_model->update();
-		$this->session->set_flashdata('alert',$alert);
-		redirect($_SERVER['HTTP_REFERER']);
+        }
+		date_default_timezone_set("Asia/Jakarta");
+		$tanggal = date('Y-m-d');
+		$this->db->from('konten')->where('judul',$this->input->post('judul'));
+		$cek = $this->db->get()->row();
+		if($cek != null){
+			$alert = $this->Alert_model->warning();
+			$this->session->set_flashdata('alert','warning');
+			redirect($_SERVER['HTTP_REFERER']);
+		} else {
+			$data = array(
+				'judul' => $this->input->post('judul'),
+				'id_kategori' => $this->input->post('id_kategori'),
+				'keterangan' => $this->input->post('keterangan'),
+				'slug' => str_replace(' ','-',$this->input->post('judul')),
+			);
+			$where = array(
+				'foto' => $this->input->post('nama_foto')
+			);
+			$this->db->update('konten',$data, $where);
+			$alert = $this->Alert_model->update();
+			$this->session->set_flashdata('alert','update');
+			redirect($_SERVER['HTTP_REFERER']);
+		}
     }
 }
 ?>
