@@ -74,6 +74,42 @@
 					</div>
 					<div class="col-4"></div>
 				</div>
+				<!-- penutup row -->
+				 <h1 class="text-center mb-3 mt-3" >Visi dan Misi</h1>
+				 <div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-body">
+								<h5>Visi</h5>
+								<p></p>
+								<h5>Misi</h5>
+								<p></p>
+							</div>
+						</div>
+					</div>
+				 </div>
+				 <h1 class="text-center mb-3 mt-3" >Daftar Tenaga Pengajar</h1>
+				 <div class="row">
+				 <?php foreach($guru as $gg){?>
+					<div class="col-4">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-3">
+									<h1><i class="fas fa-user fa-2x"></i></h1>
+									</div>
+									<div class="col-9">
+									<h6>Nama : <?= $gg['nama'] ?></h6>
+									<p>Kompetensi : <?= $gg['kompetensi'] ?> </p>
+									<p>Mata Pelajaran : <?= $gg['mata_pelajaran'] ?> </p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<?php } ?>
+				 </div>
+				 <!-- penutup row -->
 			</div>
 		</div>
 	</div>
