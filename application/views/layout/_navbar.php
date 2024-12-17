@@ -17,7 +17,7 @@
 					<span class="dropdown-toggle">Profile</span>
 				</a>
 				<div class="dropdown-menu m-0">
-					<a href="feature.html" class="dropdown-item">Sambutan Kepala Sekolah</a>
+					<a href="<?= base_url('sambutan') ?>" class="dropdown-item">Sambutan Kepala Sekolah</a>
 					<a href="<?= base_url('profile/sekolah') ?>" class="dropdown-item">Profile Sekolah</a>
 					<!-- <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                 <a href="offer.html" class="dropdown-item">Our offer</a>
