@@ -80,10 +80,16 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-body">
-								<h5>Visi</h5>
-								<p></p>
-								<h5>Misi</h5>
-								<p></p>
+								<h5>Visi : </h5>
+								<p>Terwujudnya Peserta Didik yang Bertaqwa, Berkarakter Unggul, Berprestasi, Berwawasan Global dan Berbudaya Lingkungan</p>
+								<h5>Misi : </h5>
+								<p>
+									<ol>
+										<li>Menanamkan keimanan dan ketaqwaan kepada Tuhan YME</li>
+										<li>Mewujudkan Profil Pelajar Pancasila</li>
+										<li>Menyelanggarakan Pendidikan dan Pelatihan Yang Berkualitas, Berwawasan Global dan Berbudaya Lingkungan</li>
+									</ol>
+								</p>
 							</div>
 						</div>
 					</div>
@@ -110,6 +116,49 @@
 					<?php } ?>
 				 </div>
 				 <!-- penutup row -->
+				  <div class="row">
+				  <h1 class="text-center mb-3 mt-3">Sarana Dan Prasarana</h1>
+					<div class="card">
+						<div class="card-body">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+									<th>Nama Sarana</th>
+									<th>Kondisi</th>
+									<th>Jumlah</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Ruang Kelas</td>
+										<td>Baik</td>
+										<td>12</td>
+									</tr>
+									<tr>
+										<td>Laboratorium IPA</td>
+										<td>Baik</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>Perpustakaan</td>
+										<td>Baik</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>Sanitasi Guru</td>
+										<td>Baik</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>Sanitasi Siswa</td>
+										<td>Baik</td>
+										<td>1</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				  </div>
 			</div>
 		</div>
 	</div>
