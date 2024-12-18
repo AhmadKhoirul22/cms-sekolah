@@ -81,13 +81,18 @@
 						<div class="card">
 							<div class="card-body">
 								<h5>Visi : </h5>
-								<p>Terwujudnya Peserta Didik yang Bertaqwa, Berkarakter Unggul, Berprestasi, Berwawasan Global dan Berbudaya Lingkungan</p>
+								<p>Religius, Berprestasi, Beraklaq, Mandiri, dan Berwawasan Lingkungan</p>
 								<h5>Misi : </h5>
 								<p>
 									<ol>
-										<li>Menanamkan keimanan dan ketaqwaan kepada Tuhan YME</li>
-										<li>Mewujudkan Profil Pelajar Pancasila</li>
-										<li>Menyelanggarakan Pendidikan dan Pelatihan Yang Berkualitas, Berwawasan Global dan Berbudaya Lingkungan</li>
+										<li>Pelaksanaan pembiasaan ibadah secara rutin disekolah pada semua peserta didik</li>
+										<li>Peningkatan kwalitas kegiatan pembelajaraan oleh tenaga pendidik</li>
+										<li>Pelaksanaan penambahan jam pelajaran disekolah dan diluar sekolah</li>
+										<li>Optimalisasi pelaksanaan ekstrakurikuler dan penyaluran bakat minat peserta didik</li>
+										<li>Penambahan sarana dan prasarana pembelajaran disekolah</li>
+										<li>Mendorong dan menumbuhkan terciptanya akhlak mulia dan budi pekerti luhur</li>
+										<li>Optimalisasi pelaksanaan Ekstrakurikuler Pramuka, Marching Band, dan Tari</li>
+										<li>Melaksanakan dan mengembangkan kegiatan kebersihan, kesehatan dan pelestarian lingkungan</li>
 									</ol>
 								</p>
 							</div>
