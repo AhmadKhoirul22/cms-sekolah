@@ -38,7 +38,49 @@
                     <div class="card">
                         <div class="card-body">
 						<div id="autohide">
-							<?= $this->session->flashdata('alert') ?>
+							<!-- <?= $this->session->flashdata('alert'); ?> -->
+							<?php if ($this->session->flashdata('alert') == 'warning'): ?>
+							<script>
+								Swal.fire({
+									icon: 'error',
+									title: 'Data tidak valid',
+									text: 'Judul Konten sudah terdaftar.',
+									confirmButtonText: 'OK',
+									timer: 3000
+								});
+							</script>
+							<?php elseif ($this->session->flashdata('alert') == 'add'): ?>
+							<script>
+								Swal.fire({
+									icon: 'success',
+									title: 'Berhasil',
+									text: 'Data berhasil ditambahkan!',
+									confirmButtonText: 'OK',
+									timer: 3000
+								});
+							</script>
+							<?php elseif ($this->session->flashdata('alert') == 'delete'): ?>
+							<script>
+								Swal.fire({
+									icon: 'success',
+									title: 'Berhasil',
+									text: 'Data berhasil dihapus!',
+									confirmButtonText: 'OK',
+									timer: 3000
+								});
+							</script>
+							<?php elseif ($this->session->flashdata('alert') == 'update'): ?>
+							<script>
+								Swal.fire({
+									icon: 'success',
+									title: 'Berhasil',
+									text: 'Data berhasil diupdate!',
+									confirmButtonText: 'OK',
+									timer: 3000
+								});
+							</script>
+							<?php endif; ?>
+
 						</div>
 						<button type="button" class="btn btn-outline-primary block mb-3" data-bs-toggle="modal" data-bs-target="#default">
 							Tambah Konten
