@@ -1,7 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
 	<a href="<?= base_url('home') ?>" class="navbar-brand p-0">
-		<h1 class="text-primary"><i class="fas fa-search-dollar me-3"></i><?= $profile->nama_profile ?></h1>
-		<!-- <img src="img/logo.png" alt="Logo"> -->
+		<div class="row">
+			<div class="col-2">
+			<img src="<?= base_url('assets/upload/icon/logo.png') ?>" alt="Logo">
+			</div>
+			<div class="col-10">
+		<h1 class="text-primary"><?= $profile->nama_profile ?></h1>
+			</div>
+		</div>
 	</a>
 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
 		<span class="fa fa-bars"></span>
