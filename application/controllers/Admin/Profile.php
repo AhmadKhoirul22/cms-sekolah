@@ -16,6 +16,8 @@ class Profile extends CI_Controller{
 			'nama_profile' => $this->input->post('nama_profile'),
 			'alamat_profile' => $this->input->post('alamat_profile'),
 			'keterangan_profile' => $this->input->post('keterangan_profile'),
+			'email_profile' => $this->input->post('email_profile'),
+			'telp_profile' => $this->input->post('telp_profile'),
 		);
 		$where = array('id_profile' => $this->input->post('id_profile'));
 		$this->db->update('profile',$data,$where);
