@@ -2,6 +2,9 @@
 class Kategori extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
+		if($this->session->userdata('level') == null){
+			redirect('auth');
+		}
 		$this->load->model('Alert_model');
 		$this->load->model('Kategori_model');
 	}
