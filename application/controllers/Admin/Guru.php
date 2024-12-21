@@ -2,6 +2,9 @@
 class Guru extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
+		if($this->session->userdata('level') == null){
+			redirect('auth');
+		}
 		$this->load->model('Alert_model');
 		$this->load->model('User_model');
 	}
@@ -14,12 +17,10 @@ class Guru extends CI_Controller{
 		$this->db->from('guru')->where('nama',$this->input->post('nama'));
 		$cek = $this->db->get()->result_array();
 		if($cek <> null){
-			$alert = $this->Alert_model->warning();
 			$this->session->set_flashdata('alert','warning');
 			redirect($_SERVER['HTTP_REFERER']);
 		} else{
 			$this->User_model->add_guru();
-			$alert = $this->Alert_model->tambah();
 			$this->session->set_flashdata('alert','add');
 			redirect($_SERVER['HTTP_REFERER']);
 		}
@@ -39,7 +40,6 @@ class Guru extends CI_Controller{
 			redirect($_SERVER['HTTP_REFERER']);
 		} else{
 		$this->User_model->update_guru();
-		$alert = $this->Alert_model->update();
 		$this->session->set_flashdata('alert','update');
 		redirect($_SERVER['HTTP_REFERER']);
 		}
