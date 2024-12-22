@@ -7,16 +7,11 @@ class Konten extends CI_Controller{
 		}
 		$this->load->model('Alert_model');
 		$this->load->model('Kategori_model');
-
+		$this->load->model('Konten_model');
 	}
 	public function index(){
 		$data['title'] = 'Konten';
-
-		$this->db->from('konten a');
-		$this->db->join('kategori b','b.id_kategori = a.id_kategori','left');
-		$this->db->join('user c','c.id_user = a.id_user','left');
-		$data['konten'] = $this->db->get()->result_array();
-
+		$data['konten'] = $this->Konten_model->tampil_konten();
 		$data['kategori'] = $this->Kategori_model->tampil();
 		$this->load->view('admin/konten',$data);
 	}
@@ -48,21 +43,11 @@ class Konten extends CI_Controller{
 		$this->db->from('konten')->where('judul',$this->input->post('judul'));
 		$cek = $this->db->get()->row();
 		if($cek != null){
-			$alert = $this->Alert_model->warning();
 			$this->session->set_flashdata('alert','warning');
 			redirect($_SERVER['HTTP_REFERER']);
 		} else{
-			$data = array(
-				'judul' => $this->input->post('judul'),
-				'keterangan' => $this->input->post('keterangan'),
-				'id_kategori' => $this->input->post('id_kategori'),
-				'id_user' => $this->session->userdata('id_user'),
-				'tanggal' => $tanggal,
-				'foto' => $namafoto,
-				'slug' => str_replace(' ','-',$this->input->post('judul')),
-			);
+			$data = $this->Konten_model->add($tanggal,$namafoto);
 			$this->db->insert('konten',$data);
-			$alert = $this->Alert_model->tambah();
 			$this->session->set_flashdata('alert','add');
 			redirect($_SERVER['HTTP_REFERER']);
 		}
@@ -72,11 +57,8 @@ class Konten extends CI_Controller{
         if(file_exists($filename)){
             unlink("./assets/upload/konten/".$id);
         }
-        $where = array(
-                'foto' => $id
-                );
+        $where = $this->Konten_model->delete($id);
         $this->db->delete('konten', $where);
-        $alert = $this->Alert_model->delete();
 		$this->session->set_flashdata('alert','delete');
 		redirect($_SERVER['HTTP_REFERER']);
     }
@@ -119,7 +101,6 @@ class Konten extends CI_Controller{
 				'foto' => $this->input->post('nama_foto')
 			);
 			$this->db->update('konten',$data, $where);
-			$alert = $this->Alert_model->update();
 			$this->session->set_flashdata('alert','update');
 			redirect($_SERVER['HTTP_REFERER']);
 		}
