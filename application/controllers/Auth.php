@@ -20,7 +20,7 @@ class Auth extends CI_Controller{
                                         email tidak terdaftar
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>';
-			$this->session->set_flashdata('alert',$alert);
+			$this->session->set_flashdata('alert','email tidak terdaftar');
 			redirect($_SERVER['HTTP_REFERER']);
 		} else if ($cek->password == $password){
 			$data = array(
@@ -37,7 +37,7 @@ class Auth extends CI_Controller{
                                         password salah
                                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>';
-			$this->session->set_flashdata('alert',$alert);
+			$this->session->set_flashdata('alert','password salah');
 			  redirect($_SERVER['HTTP_REFERER']);
 		}
 	}
