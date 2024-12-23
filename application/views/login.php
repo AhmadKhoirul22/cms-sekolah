@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="<?= base_url('assets/mazer/dist/') ?>assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="<?= base_url('assets/mazer/dist/') ?>assets/css/app.css">
     <link rel="stylesheet" href="<?= base_url('assets/mazer/dist/') ?>assets/css/pages/auth.css">
+	<!-- Tambahkan SweetAlert -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -23,7 +25,30 @@
                     </div>
                     <h1 class="auth-title">Log in.</h1>
                     <!-- <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p> -->
+					<div id="autohide">
+							<?php if ($this->session->flashdata('alert') == 'email tidak terdaftar'): ?>
+							<script>
+								Swal.fire({
+									icon: 'error',
+									title: 'Data tidak valid',
+									text: 'Email tidak terdaftar.',
+									confirmButtonText: 'OK',
+									timer: 3000
+								});
+							</script>
+							<?php elseif ($this->session->flashdata('alert') == 'password salah'): ?>
+							<script>
+								Swal.fire({
+									icon: 'error',
+									title: 'Data tidak valid',
+									text: 'Password salah.',
+									confirmButtonText: 'OK',
+									timer: 3000
+								});
+							</script>
+							<?php endif; ?>
 
+						</div>
                     <form action="<?= base_url('auth/login') ?>" method="post" >
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input type="email" name="email" class="form-control form-control-xl" placeholder="Email" required >
