@@ -45,17 +45,32 @@
 						<p class="mb-5" ><?= $konten['keterangan'] ?></p>
 						</article>
 						<div class="col-3">
-						<div class="mb-5">
-							<h3 class="bold" >Bagikan</h3>
-							<div class="row">
-								<div class="col-sm-10">
-							<input type="text" readonly value="<?= current_url() ?>" class="form-control">
-								</div>
-								<div class="col-sm-2">
-								<button type="button" class="btn btn-success">salin</button>
+							<div class="mb-5">
+								<h3 class="bold">Bagikan</h3>
+								<div class="row">
+									<div class="col-sm-10">
+										<input id="url-to-copy" type="text" readonly value="<?= current_url() ?>" class="form-control">
+									</div>
+									<div class="col-sm-2">
+										<button type="button" class="btn btn-success" onclick="copyToClipboard()">Salin</button>
+									</div>
 								</div>
 							</div>
-						</div>
+
+							<script>
+								function copyToClipboard() {
+									// Ambil elemen input
+									const inputElement = document.getElementById('url-to-copy');
+									// Salin nilai input ke clipboard
+									navigator.clipboard.writeText(inputElement.value)
+										.then(() => {
+											alert('Teks berhasil disalin ke clipboard!');
+										})
+										.catch(err => {
+											console.error('Gagal menyalin teks: ', err);
+										});
+								}
+							</script>
 						</div>
 					</article>
         		</div>
