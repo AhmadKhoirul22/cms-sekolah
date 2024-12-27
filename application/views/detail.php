@@ -18,24 +18,57 @@
         <!-- Features End -->
         <!-- Services Start -->
         <div class="container-fluid service pb-5 mt-5">
-            <div class="container pb-5">
-				
-               <div class="col-12">
-				<div class="text-center mb-3">
-					<img src="<?= base_url('assets/upload/konten/'.$konten['foto']) ?>" class="img-fluid rounded-top w-100" alt="">
-				</div>
-				<div class="text-center">
-					<h4 class="mb-3" ><?= $konten['judul'] ?></h4>
-					<p><?= $konten['keterangan'] ?></p>
-				</div>
-			   </div>
-			   
-            </div>
+        	<div class="container pb-5">
+        		<div class="col-12" style="position: relative;">
+        			<div class="text-center" >
+        				<img src="<?= base_url('assets/upload/konten/'.$konten['foto']) ?>" class=""
+        					style="border-radius: 3%;max-width: 100%;height: auto;" alt="">
+        			</div>
+					<article
+						style="position: relative;z-index: 2; background: white; padding: 20px; margin-top: -50px; border-radius: 10px;
+						width: 90%;left: 5%;box-shadow: black;">
+						<p class="mb-3" ><span class="bg-success text-light" ><?= $konten['nama_kategori'] ?></span></p>
+						<h1 class="bold mb-3"><?= $konten['judul'] ?></h1>
+						<div class="col-3">
+							<div class="row">
+								<div class="col-3">
+									<i class="fas fa-user fa-3x"></i>
+								</div>
+								<div class="col-9">
+									<p><?= $konten['nama'] ?> <br>
+									<?= tanggal_indo($konten['tanggal']) ?>
+									 </p>
+								</div>
+							</div>
+						</div>
+						<article>
+						<p class="mb-5" ><?= $konten['keterangan'] ?></p>
+						</article>
+						<div class="col-3">
+						<div class="mb-5">
+							<h3 class="bold" >Bagikan</h3>
+							<div class="row">
+								<div class="col-sm-10">
+							<input type="text" readonly value="<?= current_url() ?>" class="form-control">
+								</div>
+								<div class="col-sm-2">
+								<button type="button" class="btn btn-success">salin</button>
+								</div>
+							</div>
+						</div>
+						</div>
+					</article>
+        		</div>
+        	</div>
         </div>
         <!-- Services End -->
 
         <!-- Footer Start -->
-       <?php include('layout/_footer.php') ?>
+		<div class="mt-5 pt-5">
+		<?php include('layout/_footer.php') ?>
+
+		</div>
+	   
         <!-- Footer End -->
         
         <!-- Back to Top -->
