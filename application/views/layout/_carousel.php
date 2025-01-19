@@ -18,10 +18,10 @@
                                         <div class="d-flex align-items-center justify-content-center justify-content-md-end">
                                             <h2 class="text-white me-2">Follow Us:</h2>
                                             <div class="d-flex justify-content-end ms-2">
-                                                <a class="btn btn-md-square btn-light rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
+                                                <a class="btn btn-md-square btn-light rounded-circle me-2" href="<?= $profile->facebook ?>"><i class="fab fa-facebook-f"></i></a>
                                                 <!-- <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i class="fab fa-twitter"></i></a> -->
-                                                <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i class="fab fa-instagram"></i></a>
-                                                <a class="btn btn-md-square btn-light rounded-circle ms-2" href=""><i class="fab fa-youtube"></i></a>
+                                                <a class="btn btn-md-square btn-light rounded-circle mx-2" href="<?= $profile->instagram ?>"><i class="fab fa-instagram"></i></a>
+                                                <a class="btn btn-md-square btn-light rounded-circle ms-2" href="<?= $profile->youtube ?>"><i class="fab fa-youtube"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -48,10 +48,10 @@
                                         <div class="d-flex align-items-center justify-content-center">
                                             <h2 class="text-white me-2">Follow Us:</h2>
                                             <div class="d-flex justify-content-end ms-2">
-                                                <a class="btn btn-md-square btn-light rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
+                                                <a class="btn btn-md-square btn-light rounded-circle me-2" href="<?= $profile->facebook ?>"><i class="fab fa-facebook-f"></i></a>
                                                 <!-- <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i class="fab fa-twitter"></i></a> -->
-                                                <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i class="fab fa-instagram"></i></a>
-                                                <a class="btn btn-md-square btn-light rounded-circle ms-2" href=""><i class="fab fa-youtube"></i></a>
+                                                <a class="btn btn-md-square btn-light rounded-circle mx-2" href="<?= $profile->instagram ?>"><i class="fab fa-instagram"></i></a>
+                                                <a class="btn btn-md-square btn-light rounded-circle ms-2" href="<?= $profile->youtube ?>"><i class="fab fa-youtube"></i></a>
                                             </div>
                                         </div>
                                     </div>
