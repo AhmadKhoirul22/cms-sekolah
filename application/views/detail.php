@@ -31,11 +31,13 @@
 						<h1 class="bold mb-3"><?= $konten['judul'] ?></h1>
 						<div class="col-3">
 							<div class="row">
-								<div class="col-3">
+								<div class="col-sm-3">
 									<i class="fas fa-user fa-3x"></i>
 								</div>
-								<div class="col-9">
-									<p><?= $konten['nama'] ?> <br>
+								<div class="col-sm-9">
+									<p><?= $konten['nama'] ?>
+									 </p>
+									 <p>
 									<?= tanggal_indo($konten['tanggal']) ?>
 									 </p>
 								</div>
@@ -48,7 +50,7 @@
 							<div class="mb-5">
 								<h3 class="bold">Bagikan</h3>
 								<div class="row">
-									<div class="col-sm-10">
+									<div class="col-sm-10 mb-3">
 										<input id="url-to-copy" type="text" readonly value="<?= current_url() ?>" class="form-control">
 									</div>
 									<div class="col-sm-2">
