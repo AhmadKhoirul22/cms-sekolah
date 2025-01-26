@@ -79,6 +79,16 @@
 									timer: 3000
 								});
 							</script>
+							<?php elseif ($this->session->flashdata('alert') == 'file bermasalah'): ?>
+							<script>
+								Swal.fire({
+									icon: 'error',
+									title: 'File Tidak Valid',
+									text: 'File melebihi jumlah dalam mb',
+									confirmButtonText: 'OK',
+									timer: 3000
+								});
+							</script>
 							<?php endif; ?>
 
 						</div>
@@ -165,7 +175,7 @@
 										data-bs-target="#default<?= $row['id_konten'] ?>">
 										<i class="bi bi-pencil"></i>
 									</button>
-										<a href="<?= base_url('admin/konten/delete/'.$row['foto']) ?>" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+										<a href="<?= base_url('admin/konten/delete/'.$row['foto']) ?>" data-href="<?= base_url('admin/konten/delete/'.$row['foto']) ?>" class="btn btn-danger delete-button"><i class="bi bi-trash"></i></a>
 									</td>
 								</tr>
 								<!-- model -->
