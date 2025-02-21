@@ -4,11 +4,12 @@ class User extends CI_Controller{
 		parent::__construct();
 		$this->load->model('Alert_model');
 		$this->load->model('User_model');
+		$this->load->library('Template');
 	}
 	public function index(){
 		$data['title'] = 'User';
 		$data['user'] = $this->User_model->tampil();
-		$this->load->view('admin/user',$data);
+		$this->template->load('admin/template','admin/user',$data);
 	}
 	public function tambah(){
 		$this->db->from('user')->where('nama',$this->input->post('nama'));
