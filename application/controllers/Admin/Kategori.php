@@ -7,11 +7,12 @@ class Kategori extends CI_Controller{
 		}
 		$this->load->model('Alert_model');
 		$this->load->model('Kategori_model');
+		$this->load->library('Template');
 	}
 	public function index(){
 		$data['title'] = 'Kategori';
 		$data['kategori'] = $this->Kategori_model->tampil();
-		$this->load->view('admin/kategori',$data);
+		$this->template->load('admin/template','admin/kategori',$data);
 	}
 	public function tambah(){
 		$this->db->from('kategori')->where('nama_kategori',$this->input->post('nama_kategori'));
