@@ -7,11 +7,12 @@ class Guru extends CI_Controller{
 		}
 		$this->load->model('Alert_model');
 		$this->load->model('User_model');
+		$this->load->library('Template');
 	}
 	public function index(){
 		$data['title'] = 'Guru';
 		$data['guru'] = $this->User_model->tampil_guru();
-		$this->load->view('admin/guru',$data);
+		$this->template->load('admin/template','admin/guru',$data);
 	}
 	public function tambah(){
 		$this->db->from('guru')->where('nama',$this->input->post('nama'));
