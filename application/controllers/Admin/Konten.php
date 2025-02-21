@@ -8,29 +8,26 @@ class Konten extends CI_Controller{
 		$this->load->model('Alert_model');
 		$this->load->model('Kategori_model');
 		$this->load->model('Konten_model');
+		$this->load->library('Template');
 	}
 	public function index(){
 		$data['title'] = 'Konten';
 		$data['konten'] = $this->Konten_model->tampil_konten();
 		$data['kategori'] = $this->Kategori_model->tampil();
-		$this->load->view('admin/konten',$data);
+		$this->template->load('admin/template','admin/konten',$data);
 	}
 	public function tambah(){
 		// foto
 		$namafoto = date('YmdHis').'.jpg';
 		$config['upload_path']          = 'assets/upload/konten/';
-		$config['max_size'] = 500 * 1024; //3 * 1024 * 1024; //3Mb; 0=unlimited
+		$config['max_size'] = 102400; //3 * 1024 * 1024; //3Mb; 0=unlimited
 		$config['allowed_types']        = '*';
 		$config['file_name']            = $namafoto;
+
 		$this->load->library('upload', $config);
-		if($_FILES['foto']['size'] >= 500 * 1024){
-			$this->session->set_flashdata('notifikasi', '
-			<div class="alert alert-warning alert-dismissible fade show" role="alert">
-			<i class="bi bi-exclamation-triangle me-1"></i>
-			ukuran file lebih dari 500kb ulangi upload dengan ukuran foto kurang dari 500kb
-			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		  </div>
-					');
+		
+		if($_FILES['foto']['size'] >= 100 * 1024 * 1024){
+			$this->session->set_flashdata('alert', 'file bermasalah');
 			redirect('admin/konten');  
 		}  elseif( ! $this->upload->do_upload('foto')){
 			$error = array('error' => $this->upload->display_errors());
@@ -65,12 +62,12 @@ class Konten extends CI_Controller{
 	public function update(){
         $namafoto = $this->input->post('nama_foto');
         $config['upload_path']          = 'assets/upload/konten/';
-        $config['max_size'] = 500 * 1024; //3 * 1024 * 1024; //3Mb; 0=unlimited
+        $config['max_size'] = 102400; //3 * 1024 * 1024; //3Mb; 0=unlimited
         $config['file_name']            = $namafoto;
         $config['overwrite']            = true;
         $config['allowed_types']        = '*';  
         $this->load->library('upload', $config);
-        if($_FILES['foto']['size'] >= 500 * 1024){
+        if($_FILES['foto']['size'] >= 102400){
             $this->session->set_flashdata('alert', '
                 <div class="alert alert-danger alert-dismissible" role="alert">
                 Ukuran foto terlalu besar, upload ulang foto dengan ukuran yang kurang dari 500 KB.
