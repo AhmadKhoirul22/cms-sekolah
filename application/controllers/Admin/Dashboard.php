@@ -5,10 +5,11 @@ class Dashboard extends CI_Controller{
 		if($this->session->userdata('level') == null){
 			redirect('auth');
 		}
+		$this->load->library('Template');
 	}
 	public function index(){
 		$data['title'] = 'Dashboard';
-		$this->load->view('admin/dashboard',$data);
+		$this->template->load('admin/template','admin/dashboard',$data);
 	}
 }
 ?>
