@@ -5,18 +5,20 @@
 	<?php include('layout/_css.php') ?>
 	<style>
 		.service-img {
-    height: 200px; /* Atur tinggi yang sama untuk semua gambar */
-    overflow: hidden;
-    position: relative;
-}
+			height: 200px;
+			/* Atur tinggi yang sama untuk semua gambar */
+			overflow: hidden;
+			position: relative;
+		}
 
-.service-img img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover; /* Memastikan gambar tetap rapi */
-    object-position: center; /* Gambar tetap di tengah */
-}
-
+		.service-img img {
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			/* Memastikan gambar tetap rapi */
+			object-position: center;
+			/* Gambar tetap di tengah */
+		}
 	</style>
     </head>
     <body>
