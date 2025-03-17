@@ -24,7 +24,8 @@ class Home extends CI_Controller{
 		$data['title'] = 'detail berita';
 		$this->db->from('profile');
 		$data['profile'] = $this->db->get()->row();
-		$this->load->view('detail',$data);
+		$this->template->load('template','detail',$data);
+		// $this->load->view('detail',$data);
 	}
 }
 ?>
