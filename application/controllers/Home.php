@@ -12,7 +12,7 @@ class Home extends CI_Controller{
 		$this->db->from('profile');
 		$data['profile'] = $this->db->get()->row();
 		$data['title'] = 'Dashboard';
-		$this->load->view('home',$data);
+		$this->template->load('template','home',$data);
 	}
 	public function detail($lug){
 		$slug = $this->uri->segment(3);
