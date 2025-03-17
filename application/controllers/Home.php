@@ -1,5 +1,9 @@
 <?php
 class Home extends CI_Controller{
+	public function __construct(){
+		parent::__construct();
+		$this->load->library('Template');
+	}
 	public function index(){
 		$this->db->from('konten a');
 		$this->db->join('kategori b','b.id_kategori = a.id_kategori','left');
