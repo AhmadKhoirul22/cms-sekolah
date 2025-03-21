@@ -14,6 +14,15 @@ class Kategori extends CI_Controller{
 		$data['kategori'] = $this->Kategori_model->tampil();
 		$this->template->load('admin/template','admin/kategori',$data);
 	}
+
+	public function getKategori(){
+		$data = $this->Kategori_model->tampil();
+		echo json_encode($data);
+	}
+	public function getKategoriID($id){
+		$data = $this->Kategori_model->kategori_byID($id);
+		echo json_encode($data);
+	}
 	public function tambah(){
 		$this->db->from('kategori')->where('nama_kategori',$this->input->post('nama_kategori'));
 		$cek = $this->db->get()->result_array();
