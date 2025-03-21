@@ -4,6 +4,10 @@ class Kategori_model extends CI_Model{
 		$this->db->from('kategori');
 		return $this->db->get()->result_array();
 	}
+	public function kategori_byID($id){
+		$this->db->from('kategori')->where('id_kategori',$id);
+		return $this->db->get()->row();
+	}
 	public function tambah(){
 		$data = array(
 			'nama_kategori' => $this->input->post('nama_kategori')
