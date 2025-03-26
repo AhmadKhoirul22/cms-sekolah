@@ -25,8 +25,7 @@ class Kategori extends CI_Controller{
 	public function tambah(){
 		$this->db->from('kategori')->where('nama_kategori',$this->input->post('nama_kategori'));
 		$cek = $this->db->get()->result_array();
-
-		if($cek <> null){
+		if($cek){
 		// $alert = $this->Alert_model->warning();
 		$this->session->set_flashdata('alert','warning');
 		redirect($_SERVER['HTTP_REFERER']);
@@ -40,7 +39,7 @@ class Kategori extends CI_Controller{
 	public function update(){
 		$this->db->from('kategori')->where('nama_kategori',$this->input->post('nama_kategori'));
 		$cek = $this->db->get()->result_array();
-		if($cek <> null){
+		if($cek){
 		// $alert = $this->Alert_model->warning();
 		$this->session->set_flashdata('alert','warning');
 		redirect($_SERVER['HTTP_REFERER']);
