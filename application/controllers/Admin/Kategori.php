@@ -11,7 +11,6 @@ class Kategori extends CI_Controller{
 	}
 	public function index(){
 		$data['title'] = 'Kategori';
-		$data['kategori'] = $this->Kategori_model->tampil();
 		$this->template->load('admin/template','admin/kategori',$data);
 	}
 
