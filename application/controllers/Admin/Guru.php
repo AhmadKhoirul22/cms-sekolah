@@ -11,7 +11,6 @@ class Guru extends CI_Controller{
 	}
 	public function index(){
 		$data['title'] = 'Guru';
-		$data['guru'] = $this->User_model->tampil_guru();
 		$this->template->load('admin/template','admin/guru',$data);
 	}
 	public function tambah(){
