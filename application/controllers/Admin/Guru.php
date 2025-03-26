@@ -43,7 +43,6 @@ class Guru extends CI_Controller{
 		$this->session->set_flashdata('alert','update');
 		redirect($_SERVER['HTTP_REFERER']);
 		}
-		
 	}
 }
 ?>
