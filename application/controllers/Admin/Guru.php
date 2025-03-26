@@ -16,7 +16,7 @@ class Guru extends CI_Controller{
 	public function tambah(){
 		$this->db->from('guru')->where('nama',$this->input->post('nama'));
 		$cek = $this->db->get()->result_array();
-		if($cek <> null){
+		if($cek){
 			$this->session->set_flashdata('alert','warning');
 			redirect($_SERVER['HTTP_REFERER']);
 		} else{
@@ -34,7 +34,7 @@ class Guru extends CI_Controller{
 	public function update(){
 		$this->db->from('guru')->where('nama',$this->input->post('nama'));
 		$cek = $this->db->get()->result_array();
-		if($cek <> null){
+		if($cek){
 			// $alert = $this->Alert_model->warning();
 			$this->session->set_flashdata('alert','warning');
 			redirect($_SERVER['HTTP_REFERER']);
