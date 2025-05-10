@@ -11,38 +11,45 @@ class Guru extends CI_Controller{
 	}
 	public function index(){
 		$data['title'] = 'Guru';
+		$data['guru'] = $this->User_model->tampil_guru();
 		$this->template->load('admin/template','admin/guru',$data);
+	}
+	public function getGuruAll(){
+		$data = $this->User_model->tampil_guru();
+		echo json_encode($data);
+	}
+	public function getGuruID($id){
+		$data = $this->User_model->guru_byID($id);
+		echo json_encode($data);
 	}
 	public function tambah(){
 		$this->db->from('guru')->where('nama',$this->input->post('nama'));
-		$cek = $this->db->get()->result_array();
-		if($cek){
-			$this->session->set_flashdata('alert','warning');
-			redirect($_SERVER['HTTP_REFERER']);
-		} else{
+		$cek = $this->db->get()->row_array();
+		if ($cek) {
+			echo json_encode(['status' => 'error', 'message' => 'Nama Guru sudah terdaftar!']);
+		} else {
 			$this->User_model->add_guru();
-			$this->session->set_flashdata('alert','add');
-			redirect($_SERVER['HTTP_REFERER']);
+			echo json_encode(['status' => 'success', 'message' => 'Data berhasil ditambahkan!']);
 		}
 	}
 	public function delete($id){
-		$this->User_model->delete_guru($id);
-		$alert = $this->Alert_model->delete();
-		$this->session->set_flashdata('alert','delete');
-		redirect($_SERVER['HTTP_REFERER']);
+		if ($id) {
+			$this->User_model->delete_guru($id);
+			echo json_encode(['status' => 'success', 'message' => 'Data berhasil dihapus!']);
+		} else {
+			echo json_encode(['status' => 'error', 'message' => 'Nama Guru tidak ditemukan!']);
+		}
 	}
 	public function update(){
 		$this->db->from('guru')->where('nama',$this->input->post('nama'));
-		$cek = $this->db->get()->result_array();
-		if($cek){
-			// $alert = $this->Alert_model->warning();
-			$this->session->set_flashdata('alert','warning');
-			redirect($_SERVER['HTTP_REFERER']);
-		} else{
-		$this->User_model->update_guru();
-		$this->session->set_flashdata('alert','update');
-		redirect($_SERVER['HTTP_REFERER']);
+		$cek = $this->db->get()->row_array();
+		if ($cek) {
+			echo json_encode(['status' => 'error', 'message' => 'Nama Guru sudah terdaftar!']);
+		} else {
+			$this->User_model->update_guru();
+			echo json_encode(['status' => 'success', 'message' => 'Data berhasil diupdate!']);
 		}
 	}
 }
 ?>
+
