@@ -13,3 +13,9 @@ class Dashboard extends CI_Controller{
 	}
 }
 ?>
+<!-- hosting = 700k / tahun
+	 web = 1,5 jt (nego)
+	 pemeliharaan web + tambah fitur2 = 40k / bulan
+	 2,2 jt => total tanpa penambahan fitur
+	 pemeliharaan domain 300k / bulan
+-->
