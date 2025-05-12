@@ -29,5 +29,12 @@ class Kategori_model extends CI_Model{
 		);
 		$this->db->delete('kategori',$data);
 	}
+
+	public function tampil_profile(){
+		return $this->db->from('profile')->get()->row();
+	}
+	public function tampil_ppdb(){
+		return $this->db->from('ppdb')->get()->row();
+	}
 }
 ?>
