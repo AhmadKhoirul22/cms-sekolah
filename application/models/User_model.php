@@ -1,8 +1,13 @@
 <?php 
 class User_model extends CI_Model{
+	// user
 	public function tampil(){
 		$this->db->from('user')->order_by('nama','ASC');
 		return $this->db->get()->result_array();
+	}
+	public function User_byID($id){
+		$this->db->from('user')->where('id_user',$id);
+		return $this->db->get()->row();
 	}
 	public function tambah(){
 		$data = array(
@@ -31,12 +36,16 @@ class User_model extends CI_Model{
 		);
 		$this->db->update('user',$data,$where);
 	}
+	// end user
+	// begin guru
 	public function tampil_guru(){
 		$this->db->from('guru');
 		$this->db->order_by('nama','ASC');
-		$data = $this->db->get()->result_array();
-		
-		return $data;
+		return $this->db->get()->result_array();
+	}
+	public function guru_byID($id){
+		$this->db->from('guru')->where('id_guru',$id);
+		return $this->db->get()->row();
 	}
 	public function add_guru(){
 		$data = [
@@ -63,5 +72,6 @@ class User_model extends CI_Model{
 		];
 		$this->db->update('guru',$data,$where);
 	}
+	// end guru
 }
 ?>
