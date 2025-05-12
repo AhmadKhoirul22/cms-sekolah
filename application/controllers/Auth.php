@@ -14,14 +14,8 @@ class Auth extends CI_Controller{
 		$password = md5($this->input->post('password'));
 		$this->db->from('user')->where('email',$this->input->post('email'));
 		$cek = $this->db->get()->row();
-		
 		if($cek == NULL){
-			$alert = '<div class="alert alert-danger alert-dismissible show fade">
-                                        email tidak terdaftar
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>';
-			$this->session->set_flashdata('alert','email tidak terdaftar');
-			redirect($_SERVER['HTTP_REFERER']);
+			echo json_encode(['status' => 'error', 'message' => 'Email Terdaftar!']);
 		} else if ($cek->password == $password){
 			$data = array(
 				'nama' => $cek->nama,
@@ -31,14 +25,9 @@ class Auth extends CI_Controller{
 				'level' => $cek->level,
 			);
 			$this->session->set_userdata($data);
-			redirect('admin/dashboard');
+			echo json_encode(['status' => 'success', 'message' => 'Berhasil Login!','redirect' => base_url('admin/dashboard')]);
 		} else {
-			$alert = '<div class="alert alert-danger alert-dismissible show fade">
-                                        password salah
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                    </div>';
-			$this->session->set_flashdata('alert','password salah');
-			  redirect($_SERVER['HTTP_REFERER']);
+			echo json_encode(['status' => 'error', 'message' => 'Password Salah!']);
 		}
 	}
 
