@@ -1,14 +1,16 @@
 <?php
 class Profile extends CI_Controller{
+	public function __construct(){
+		parent::__construct();
+		$this->load->model('Kategori_model');
+		$this->load->model('User_model');
+		$this->load->library('Template');
+	}
 	public function sekolah(){
 		$data['title'] = 'Profile Sekolah';
-		$this->db->from('profile');
-		$data['profile'] = $this->db->get()->row();
-
-		$this->db->from('guru');
-		$this->db->order_by('nama','ASC');
-		$data['guru'] = $this->db->get()->result_array();
-		$this->load->view('profile_sekolah',$data);
+		$data['profile'] = $this->Kategori_model->tampil_profile();
+		$data['guru'] = $this->User_model->tampil_guru();
+		$this->template->load('template_detail','profile_sekolah',$data);
 	}
 }
 ?>
