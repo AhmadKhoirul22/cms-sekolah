@@ -8,41 +8,43 @@ class User extends CI_Controller{
 	}
 	public function index(){
 		$data['title'] = 'User';
-		$data['user'] = $this->User_model->tampil();
 		$this->template->load('admin/template','admin/user',$data);
+	}
+
+	public function getUser(){
+		$data = $this->User_model->tampil();
+		echo json_encode($data);
+	}
+	public function getUserID($id){
+		$data = $this->User_model->User_byID($id);
+		echo json_encode($data);
 	}
 	public function tambah(){
 		$this->db->from('user')->where('nama',$this->input->post('nama'));
-		$cek = $this->db->get()->result_array();
-		if($cek <> null){
-			$alert = $this->Alert_model->warning();
-			$this->session->set_flashdata('alert','warning');
-			redirect($_SERVER['HTTP_REFERER']);
-		} else{
+		$cek = $this->db->get()->row_array();
+		if ($cek) {
+			echo json_encode(['status' => 'error', 'message' => 'Nama User sudah terdaftar!']);
+		} else {
 			$this->User_model->tambah();
-			$alert = $this->Alert_model->tambah();
-			$this->session->set_flashdata('alert','add');
-			redirect($_SERVER['HTTP_REFERER']);
+			echo json_encode(['status' => 'success', 'message' => 'Data berhasil ditambahkan!']);
 		}
 	}
 	public function delete($id){
-		$this->User_model->delete($id);
-		$alert = $this->Alert_model->delete();
-		$this->session->set_flashdata('alert','delete');
-		redirect($_SERVER['HTTP_REFERER']);
+		if ($id) {
+			$this->User_model->delete($id);
+			echo json_encode(['status' => 'success', 'message' => 'Data berhasil dihapus!']);
+		} else {
+			echo json_encode(['status' => 'error', 'message' => 'Nama User sudah tidak ditemukan!']);
+		}
 	}
 	public function update(){
 		$this->db->from('user')->where('nama',$this->input->post('nama'));
 		$cek = $this->db->get()->result_array();
-		if($cek <> null){
-			$alert = $this->Alert_model->warning();
-			$this->session->set_flashdata('alert','warning');
-			redirect($_SERVER['HTTP_REFERER']);
-		} else{
-		$this->User_model->update();
-		$alert = $this->Alert_model->update();
-		$this->session->set_flashdata('alert','update');
-		redirect($_SERVER['HTTP_REFERER']);
+		if ($cek) {
+			echo json_encode(['status' => 'error', 'message' => 'Nama User sudah terdaftar!']);
+		} else {
+			$this->User_model->update();
+			echo json_encode(['status' => 'success', 'message' => 'Data berhasil diupdate!']);
 		}
 		
 	}
