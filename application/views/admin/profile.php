@@ -44,11 +44,12 @@
 			</script>
 			<?php endif; ?>
 		</div>
-		<form action="<?= base_url('admin/profile/update') ?>" method="post">
+		<form action="<?= base_url('admin/profile/update') ?>" method="post" enctype="multipart/form-data" >
 			<input type="hidden" name="id_profile" value="<?= $profile->id_profile ?>">
+			<input type="hidden" name="nama_foto" value="<?= $profile->foto ?>">
 			<div class="mb-3">
 				<label for="" class="form-label">Nama </label>
-				<input type="text" name="nama_profile" value="<?= $profile->nama_profile ?>" class="form-control">
+				<input type="text" name="nama_profile" readonly value="<?= $profile->nama_profile ?>" class="form-control">
 			</div>
 			<div class="mb-3">
 				<label for="" class="form-label">Alamat </label>
@@ -77,6 +78,39 @@
 			<div class="mb-3">
 				<label for="" class="form-label">Keterangan </label>
 				<textarea name="keterangan_profile" class="form-control"><?= $profile->keterangan_profile ?></textarea>
+			</div>
+			<div class="mb-3">
+				<label for="" class="form-label">Foto Kepala Sekolah </label>
+				<input type="file" name="foto" class="form-control">
+				<div class="mt-3">
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#default">
+							<i class="bi bi-eye"></i> Lihat Foto
+					</button>
+					<div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
+							aria-labelledby="myModalLabel1" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-scrollable modal-xl " role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="myModalLabel1">Foto Kepala Sekolah</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close">
+											<i data-feather="x"></i>
+										</button>
+									</div>
+									<div class="modal-body">
+										<img src="<?= base_url('assets/upload/konten/'.$profile->foto) ?>" class=""
+											style="border-radius: 3%;max-width: 100%;height: auto;" alt="">
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+											<i class="bx bx-x d-block d-sm-none"></i>
+											<span class="d-none d-sm-block">Close</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
 			</div>
 			<div class="mb-3">
 				<button class="btn btn-info" type="submit">Update</button>
