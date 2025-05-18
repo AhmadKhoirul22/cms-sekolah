@@ -30,7 +30,7 @@
                     <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
                         <div class="feature-item p-4">
                             <div class="feature-icon p-4 mb-4">
-                                <i class="fas fa-user fa-4x text-primary"></i>
+                                <i class="fas fa-graduation-cap fa-4x text-primary"></i>
                             </div>
                             <h4><span class="counter" data-target="50" >0</span>+</h4>
                             <p class="mb-4">Guru Aktif</p>
