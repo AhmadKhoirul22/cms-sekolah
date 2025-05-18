@@ -43,7 +43,6 @@
 				});
 			</script>
 			<?php endif; ?>
-
 		</div>
 		<button type="button" class="btn btn-primary block mb-3" data-bs-toggle="modal"
 			data-bs-target="#default">
@@ -56,7 +55,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="myModalLabel1">Tambah Guru</h5>
-						<button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 							<i data-feather="x"></i>
 						</button>
 					</div>
@@ -90,7 +89,7 @@
 			</div>
 		</div>
 		<!-- end modal -->
-		<table class="table DataTable" id="table1">
+		<table class="table table-bordered table-striped" width="100%" id="datatable">
 			<thead>
 				<tr>
 					<th>No</th>
@@ -100,79 +99,176 @@
 					<th>Action</th>
 				</tr>
 			</thead>
-			<tbody>
-				<?php $no=1; foreach($guru as $row){ ?>
-				<tr>
-					<td><?= $no++; ?></td>
-					<td><?= $row['nama'] ?></td>
-					<td><?= $row['kompetensi'] ?></td>
-					<td><?= $row['mata_pelajaran'] ?></td>
-					<td>
-
-						<button type="button" class="btn btn-primary" data-bs-toggle="modal"
-							data-bs-target="#default<?= $row['id_guru'] ?>">
-							<i class="bi bi-pencil"></i>
-						</button>
-						<a href="<?= base_url('admin/guru/delete/'.$row['id_guru']) ?>"
-							class="btn btn-danger delete-button"
-							data-href="<?= base_url('admin/guru/delete/'.$row['id_guru']) ?>"><i
-								class="bi bi-trash"></i></a>
-
-					</td>
-				</tr>
-				<!-- modal -->
-				<div class="modal fade text-left" id="default<?= $row['id_guru'] ?>" tabindex="-1"
-					aria-labelledby="myModalLabel1" aria-hidden="true" style="display: none;">
-					<div class="modal-dialog modal-dialog-scrollable" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="myModalLabel1">Update User</h5>
-								<button type="button" class="close rounded-pill" data-bs-dismiss="modal"
-									aria-label="Close">
-									<i data-feather="x"></i>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form action="<?= base_url('admin/guru/update') ?>" method="post">
-									<input type="hidden" name="id_guru" value="<?= $row['id_guru'] ?>">
-									<div class="mb-2">
-										<label for="" class="form-label">Nama Guru</label>
-										<input type="text" name="nama" value="<?= $row['nama'] ?>" class="form-control"
-											required>
-									</div>
-									<div class="mb-2">
-										<label for="" class="form-label">Kompetensi</label>
-										<input type="text" name="kompetensi" value="<?= $row['kompetensi'] ?>"
-											class="form-control" required>
-									</div>
-									<div class="mb-2">
-										<label for="" class="form-label">Mata Pelajaran</label>
-										<input type="text" name="mata_pelajaran" value="<?= $row['mata_pelajaran'] ?>"
-											class="form-control" required>
-									</div>
-									<!-- <div class="mb-2">
-				<label for="" class="form-label">Password</label>
-				<input type="password" value="<?= $row['password'] ?>" name="password" class="form-control" required>
-			</div> -->
-
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-									<i class="bx bx-x d-block d-sm-none"></i>
-									<span class="d-none d-sm-block">Close</span>
-								</button>
-								<button type="submit" class="btn btn-primary ml-1">
-									<i class="bx bx-check d-block d-sm-none"></i>
-									<span class="d-none d-sm-block">Submit</span>
-								</button>
-							</div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<!-- end modal -->
-				<?php } ?>
-			</tbody>
 		</table>
 	</div>
 </div>
+<!-- modal -->
+<div class="modal fade text-left" id="EditGuru" tabindex="-1" aria-labelledby="myModalLabel1"
+	aria-hidden="true" style="display: none;">
+	<div class="modal-dialog modal-dialog-scrollable" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="myModalLabel1">Update Guru</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+					<i data-feather="x"></i>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form id="FormEdit" method="post">
+					<input type="hidden" name="id_guru" id="id_guru" >
+					<div class="mb-2">
+						<label for="" class="form-label">Nama Guru</label>
+						<input type="text" name="nama" id="nama" class="form-control" required>
+					</div>
+					<div class="mb-2">
+						<label for="" class="form-label">Kompetensi</label>
+						<input type="text" name="kompetensi" id="kompetensi" class="form-control"
+							required>
+					</div>
+					<div class="mb-2">
+						<label for="" class="form-label">Mata Pelajaran</label>
+						<input type="text" name="mata_pelajaran" id="mata_pelajaran"
+							class="form-control" required>
+					</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+					<i class="bx bx-x d-block d-sm-none"></i>
+					<span class="d-none d-sm-block">Close</span>
+				</button>
+				<button type="submit" class="btn btn-primary ml-1">
+					<i class="bx bx-check d-block d-sm-none"></i>
+					<span class="d-none d-sm-block">Submit</span>
+				</button>
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- end modal -->
+<!-- jquery -->
+<script>
+	$(document).ready(function() {
+		$('#datatable').DataTable({
+			"scrollX": true,
+			"ajax": {
+				"url": "<?= base_url('admin/guru/getGuruAll') ?>",
+				"dataSrc": ""
+			},
+			"columns": [
+				{
+                    "render": function (data, type, full, meta) {
+                        return meta.row + 1; // Menampilkan nomor urut
+                    }
+                },
+				{"data": "nama"},
+				{"data": "kompetensi"},
+				{"data": "mata_pelajaran"},
+				{
+    "data": "id_guru",
+    "render": function (data, type, full, meta) {
+        return `
+            <button type="button" id="${data}" class="btn btn-primary" onclick="fun_edit(this.id)" title="Edit User">
+                <i class="bi-pencil"></i>
+            </button>
+            <button type="button" id="${data}" class="btn btn-danger" onclick="fun_delete(this.id)" title="Hapus User">
+                <i class="bi-trash"></i>
+            </button>
+        `;
+    }
+}
+
+			]
+		});
+	});
+	function fun_edit(id_guru) {
+		$('#EditGuru').modal('show');
+		$.getJSON('<?= base_url('admin/guru/getGuruID/') ?>' + id_guru, function(json) {
+			$('#kompetensi').val(json.kompetensi);
+			$('#mata_pelajaran').val(json.mata_pelajaran);
+			$('#nama').val(json.nama);
+			$('#id_guru').val(json.id_guru);
+		});
+	}
+
+	$('#FormEdit').submit(function (e) {
+			e.preventDefault();
+			let formData = $(this).serialize();
+			$.ajax({
+				type: "POST",
+				url: "<?= base_url('admin/guru/update') ?>",
+				dataType: "json",
+				data: formData,
+				success: function (response) {
+					if (response.status === 'error') {
+						Swal.fire({
+							icon: 'error',
+							title: 'Data tidak valid',
+							text: response.message,
+							confirmButtonText: 'OK',
+							timer: 3000
+						});
+					} else if (response.status === 'success') {
+						Swal.fire({
+							icon: 'success',
+							title: 'Berhasil',
+							text: response.message,
+							confirmButtonText: 'OK',
+							timer: 3000
+						}).then(() => {
+							$('#EditGuru').modal('hide');
+							$('#datatable').DataTable().ajax.reload();
+						});
+            		}
+				},
+				error: function () {
+					Swal.fire({
+						icon: 'error',
+						title: 'Gagal!',
+						text: 'Terjadi kesalahan dalam update data.',
+						confirmButtonText: 'OK'
+					});
+				}
+			});
+		});
+
+		function fun_delete(id_guru){
+		var result = confirm("Apakah anda yakin menghapus data user ini?");
+		if(result){
+			$.ajax({
+				url: "<?= base_url('admin/guru/delete/') ?>" + id_guru,
+				dataType: "json",
+				type: "POST",
+				success: function (response) {
+					if (response.status === 'error') {
+						Swal.fire({
+							icon: 'error',
+							title: 'Data tidak valid',
+							text: response.message,
+							confirmButtonText: 'OK',
+							timer: 3000
+						});
+					} else if (response.status === 'success') {
+						Swal.fire({
+							icon: 'success',
+							title: 'Berhasil',
+							text: response.message,
+							confirmButtonText: 'OK',
+							timer: 3000
+						}).then(() => {
+							$('#datatable').DataTable().ajax.reload();
+						});
+            		}
+				},
+				error: function () {
+					Swal.fire({
+						icon: 'error',
+						title: 'Gagal!',
+						text: 'Terjadi kesalahan dalam update data.',
+						confirmButtonText: 'OK'
+					});
+				}
+			});
+		}
+	}
+</script>
