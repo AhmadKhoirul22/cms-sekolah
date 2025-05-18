@@ -4,9 +4,11 @@
 			style="border-radius: 3%;max-width: 100%;height: auto;" alt="">
 	</div>
 	<article style="position: relative;z-index: 2; background: white; padding: 20px; margin-top: -50px; border-radius: 10px;
-						width: 90%;left: 5%;box-shadow: black;">
-		<h3 class="mb-3"><span class="badge bg-success text-light"><?= $konten['nama_kategori'] ?></span></h3>
-		<h1 class="bold mb-3" style="font-weight: bold;text-transform: uppercase;"><?= $konten['judul'] ?></h1>
+						width: 90%;left: 5%;box-shadow: 0px 4px 12px black;">
+		<h3 class="mb-3"><span class="badge bg-success text-light"><?= $konten['nama_kategori'] ?></span>
+		</h3>
+		<h1 class="bold mb-3" style="font-weight: bold;text-transform: uppercase;"><?= $konten['judul'] ?>
+		</h1>
 		<div class="col-3">
 			<div class="row">
 				<div class="col-sm-3">

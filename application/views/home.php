@@ -1,7 +1,9 @@
 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
 	<h4 class="text-primary"></h4>
 	<h1 class="display-5 mb-4">Artikel</h1>
-	<p class="mb-0">Selamat datang dihalaman artikel kami! Disini kita dapat mendapatkan berbagai informasi yang menarik
+	<p class="mb-0">Selamat datang dihalaman artikel kami! Disini kita dapat mendapatkan berbagai informasi
+		yang
+		menarik
 	</p>
 </div>
 <div class="row g-4">
@@ -38,8 +40,8 @@
 					</div>
 					<!-- <div class="col-4"></div> -->
 					<div class="col-6">
-						<a class="btn btn-primary rounded-pill"
-							href="<?= base_url('home/detail/'.$row['slug']) ?>">Learn more</a>
+						<a class="btn btn-primary float-end rounded-pill"
+							href="<?= base_url('home/detail/'.$row['slug']) ?>">Selengkapnya</a>
 						<!-- <a class="btn btn-primary rounded-pill" href="<?= base_url('home/detail/'.$row['id_konten']) ?>">Learn more</a> -->
 					</div>
 				</div>
@@ -48,3 +50,7 @@
 	</div>
 	<?php } ?>
 </div>
+<!-- <div class="mt-5">&nbsp;</div>
+<div class="mt-5" >
+	<?= $pagination ?>
+</div> -->
