@@ -2,12 +2,16 @@
 $this->db->from('profile');
 $profile = $this->db->get()->row();
 ?>
-<div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s">
+<div class="container-fluid footer py-5 wow fadeIn" style="border-top-right-radius: 5%;border-top-left-radius: 5%;" data-wow-delay="0.2s">
             <div class="container py-5 border-start-0 border-end-0" style="border: 1px solid; border-color: rgb(255, 255, 255, 0.08);">
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-6 col-xl-6">
                         <div class="footer-item">
-								<div class="row mb-2">
+								<div class="d-flex">
+									<img width="100px" height="100px" src="<?= base_url('assets/upload/icon/logo.png') ?>" alt="">
+									<h1 class="text-white justify-content-start"></i><?=$profile->nama_profile ?></h1>
+								</div>
+								<!-- <div class="row mb-2">
 									<div class="col-2">
 										<img width="100px" height="100px" src="<?= base_url('assets/upload/icon/logo.png') ?>" alt="">
 									</div>
@@ -15,7 +19,7 @@ $profile = $this->db->get()->row();
 									<div class="col-8">
 										<h1 class="text-white justify-content-start"></i><?=$profile->nama_profile ?></h1>
 									</div>
-								</div>
+								</div> -->
                                 <!-- <img src="img/logo.png" alt="Logo"> -->
                             <p class="text-light"><?= $profile->keterangan_profile ?></p>
 							<p class="text-white" ><i class="fas fa-map-marker-alt text-primary me-3"></i>  <?= $profile->alamat_profile ?></p>
