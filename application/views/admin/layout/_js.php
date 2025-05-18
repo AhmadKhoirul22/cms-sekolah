@@ -33,7 +33,7 @@
 				height: 300 // Tinggi editor
         });
 		tinymce.init({
-			selector: '#textareaEdit', // Targetkan ID textarea
+			selector: '.textareaEdit', // Targetkan ID textarea
 				plugins: [
 					'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
 					'anchor', 'searchreplace', 'visualblocks', 'fullscreen',
