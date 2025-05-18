@@ -61,11 +61,11 @@
 		<!-- model -->
 		<div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1"
 			aria-hidden="true">
-			<div class="modal-dialog modal-dialog-scrollable modal-lg " role="document">
+			<div class="modal-dialog modal-dialog-scrollable modal-full " role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="myModalLabel1">Tambah Konten</h5>
-						<button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
 							<i data-feather="x"></i>
 						</button>
 					</div>
@@ -82,7 +82,7 @@
 							</div>
 							<div class="mb-2">
 								<label for="" class="form-label">Kategori</label>
-								<select name="id_kategori" class="form-control" id="">
+								<select name="id_kategori" class="form-select" id="">
 									<?php foreach($kategori as $row){ ?>
 									<option value="<?= $row['id_kategori'] ?>">
 										<?= $row['nama_kategori'] ?></option>
@@ -155,7 +155,7 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title" id="myModalLabel1">Update Konten</h5>
-								<button type="button" class="close rounded-pill" data-bs-dismiss="modal"
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close">
 									<i data-feather="x"></i>
 								</button>
@@ -176,7 +176,7 @@
 									</div>
 									<div class="mb-2">
 										<label for="" class="form-label">Kategori</label>
-										<select name="id_kategori" class="form-control" id="">
+										<select name="id_kategori" class="form-select" id="">
 											<?php foreach($kategori as $aa){ ?>
 											<option
 												<?php if($row['id_kategori'] == $aa['id_kategori']){echo 'selected'; } ?>
@@ -213,7 +213,7 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title" id="myModalLabel1">Konten</h5>
-								<button type="button" class="close rounded-pill" data-bs-dismiss="modal"
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close">
 									<i data-feather="x"></i>
 								</button>
@@ -240,7 +240,7 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title" id="myModalLabel1">Konten</h5>
-								<button type="button" class="close rounded-pill" data-bs-dismiss="modal"
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close">
 									<i data-feather="x"></i>
 								</button>
